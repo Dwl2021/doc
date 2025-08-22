@@ -15,7 +15,7 @@
         
         <video src="./task_video_clean/place_can_basket/ur5-wsg_world.mp4" controls loop muted autoplay style="width: 25.0%;"></video>
     </div>
-    <br><b>Description</b>: Use one arm to pick up the can and another arm place it in the basket.<br>
+    <br><b>Description</b>: Use one arm to pick up the can, put it into the basket, and use another arm to lift the basket<br>
     <b>Average Steps</b>: 255 (Aloha-AgileX, save_freq=15)<br>
     <b>Objects</b>: 071_can, 110_basket<br>
     <table style="margin:0 auto;border-collapse:collapse;width:auto;min-width:180px;background-color:white;">

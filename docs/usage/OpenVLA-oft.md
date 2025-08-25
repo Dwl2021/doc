@@ -36,9 +36,9 @@ bash preproces_aloha.sh
 ```
 Then transform the data to tfds form and register the tfds form dataset in your device: e.g.:
 ```
-python -m datasets.stack_bowls_three_clean_builder
+python -m datasets.move_can_pot_builder
 ```
-After converting to RLDS, register the dataset (which, for example, would be called `aloha_stack_bowls_three_clean_builder`) with our dataloader by adding an entry for it in `configs.py` ([here](prismatic/vla/datasets/rlds/oxe/configs.py#L680)), `transforms.py` ([here](prismatic/vla/datasets/rlds/oxe/transforms.py#L928)), and `mixtures.py` ([here](prismatic/vla/datasets/rlds/oxe/mixtures.py#L216)).Details in   [Openvla-oft official documentation](https://github.com/moojink/openvla-oft/blob/main/ALOHA.md ) 
+After converting to RLDS, register the dataset (which, for example, would be called `aloha_move_can_pot_builder`) with our dataloader by adding an entry for it in `configs.py` ([here](prismatic/vla/datasets/rlds/oxe/configs.py#L680)), `transforms.py` ([here](prismatic/vla/datasets/rlds/oxe/transforms.py#L928)), and `mixtures.py` ([here](prismatic/vla/datasets/rlds/oxe/mixtures.py#L216)).Details in   [Openvla-oft official documentation](https://github.com/moojink/openvla-oft/blob/main/ALOHA.md ) 
 
 ## Finetune model
 ```

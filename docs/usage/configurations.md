@@ -150,7 +150,7 @@ data_type:
 | `depth`              | Depth images from cameras (mm).         |
 | `pointcloud`         | Merged point cloud of the scene.   |
 | `observer`           | Observer-view RGB frame.           |
-| `endpose`            | End-effector pose and gripper opening ratio.              |
+| `endpose`            | End-effector pose in the world coordinate frame and gripper opening ratio.              |
 | `qpos`               | Robot joint angles.                |
 | `mesh_segmentation`  | Per-object segmentation from mesh. |
 | `actor_segmentation` | Per-actor segmentation from RGB.   |

@@ -1,6 +1,4 @@
 #!/bin/bash
-source ~/.bashrc
-conda activate RoboTwin
 git pull --no-rebase
 
 jpg_file=$(ls . | grep 'jpg')

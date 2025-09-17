@@ -1,5 +1,7 @@
 # Configure New Embodiment in RoboTwin
 
+> We currently support the Aloha-AgileX, Franka, UR5, Piper, and ARX-X5 robot platforms. For usage instructions, see [Configuation Tutorial](./configurations.md).
+
 Embodiments are stored in the `assets/embodiments` directory. Each embodiment follows this file structure:
 
 ```

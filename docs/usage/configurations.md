@@ -150,13 +150,13 @@ data_type:
 | `depth`              | Depth images from cameras (mm).         |
 | `pointcloud`         | Merged point cloud of the scene.   |
 | `observer`           | Observer-view RGB frame.           |
-| `endpose`            | End-effector pose in the world coordinate frame and gripper opening ratio.              |
+| `endpose`            | TCP pose in the world coordinate frame and gripper opening ratio.              |
 | `qpos`               | Robot joint angles.                |
 | `mesh_segmentation`  | Per-object segmentation from mesh. |
 | `actor_segmentation` | Per-actor segmentation from RGB.   |
 
 ##### Note
-- `endpose` will get an dict containing `left_endpose`, `left_gripper`, `right_endpose` and `right_gripper`. The `left_endpose` and `right_endpose` are list of 7 elements represent the position in world and orientation of the  end-effectors, following the order `x, y, z, qw, qx, qy, qz`. And the `left_gripper` and `right_gripper` are float numbers, which repersent the opening ratio of the gripper, ranging from 0 to 1. The rotation of end-effector is as the image below: for all embodiments, the end-effector rotation is consistent, with the x-axis pointing across the gripper and the z-axis pointing across the camera.
+- `endpose` will get an dict containing `left_endpose`, `left_gripper`, `right_endpose` and `right_gripper`. The `left_endpose` and `right_endpose` are list of 7 elements represent the position in world and orientation of the tcp, following the order `x, y, z, qw, qx, qy, qz`. And the `left_gripper` and `right_gripper` are float numbers, which repersent the opening ratio of the gripper, ranging from 0 to 1. The rotation of end-effector is as the image below: for all embodiments, the end-effector rotation is consistent, with the x-axis pointing across the gripper and the z-axis pointing across the camera.
 
 <img src="./images/end_effector_axis.png" alt="End-Effector Rotation" style="display: block; margin: auto; width: 60%;">
 ---

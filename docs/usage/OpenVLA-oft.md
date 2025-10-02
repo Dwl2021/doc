@@ -32,7 +32,7 @@ See [RoboTwin Tutorial (Usage Section)](https://robotwin-platform.github.io/doc/
 use RoboTwin data generation mechanism to generate data.   
 Then convert the raw data to the aloha format that openvla-oft accepts: 
 ```
-bash preproces_aloha.sh
+bash preprocess_aloha.sh
 ```
 Then transform the data to tfds form and register the tfds form dataset in your device: e.g.:
 ```

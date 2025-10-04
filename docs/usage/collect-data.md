@@ -5,6 +5,10 @@ However, we strongly recommend users to perform data collection themselves due t
 
 Running the following command will first search for a random seed for the target collection quantity, and then replay the seed to collect data.
 
+Before collecting data, please check the common issue . We strongly recommand you to avoid using A/H/V series GPUs to collect and evaluate your policy.
+
+Before collecting data, please review common issue #3, [Stuck While Collecting Data and Evaluating](https://robotwin-platform.github.io/doc/common-issue/index.html). We strongly recommend avoiding A-, H-, or V-series GPUs for data collection and policy evaluation.
+
 ```
 bash collect_data.sh ${task_name} ${task_config} ${gpu_id}
 # Example: bash collect_data.sh beat_block_hammer demo_randomized 0

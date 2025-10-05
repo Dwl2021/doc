@@ -11,7 +11,8 @@ Before collecting data, please review common issue #3, [Stuck While Collecting D
 
 ```
 bash collect_data.sh ${task_name} ${task_config} ${gpu_id}
-# Example: bash collect_data.sh beat_block_hammer demo_randomized 0
+# Clean Data Example: bash collect_data.sh beat_block_hammer demo_clean 0
+# Radomized Data Example: bash collect_data.sh beat_block_hammer demo_randomized 0
 ```
 
 After data collection is completed, the collected data will be stored under `data/${task_name}/${task_config}`.

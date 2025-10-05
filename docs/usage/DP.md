@@ -14,7 +14,8 @@ The `expert_data_num` parameter specifies the number of trajectory pairs to be u
 
 ```
 bash process_data.sh ${task_name} ${task_config} ${expert_data_num}
-# bash process_data.sh beat_block_hammer demo_randomized 50
+# bash process_data.sh beat_block_hammer demo_clean 50
+# or processing randomized data: bash process_data.sh beat_block_hammer demo_randomized 50
 ```
 
 ## Train Policy
@@ -24,7 +25,7 @@ By default, the model is trained for **600 steps**. The `action_dim` parameter d
 
 ```
 bash train.sh ${task_name} ${task_config} ${expert_data_num} ${seed} ${action_dim} ${gpu_id}
-# bash train.sh beat_block_hammer demo_randomized 50 0 14 0
+# bash train.sh beat_block_hammer demo_clean 50 0 14 0
 # For `aloha-agilex` embodiment, the action_dim is 14
 ```
 
@@ -34,12 +35,12 @@ The `task_config` field refers to the **evaluation environment configuration**, 
 
 ```
 bash eval.sh ${task_name} ${task_config} ${ckpt_setting} ${expert_data_num} ${seed} ${gpu_id}
-# bash eval.sh beat_block_hammer demo_randomized demo_randomized 50 0 0
-# This command trains the policy using the `demo_randomized` setting ($ckpt_setting)
-# and evaluates it using the same `demo_randomized` setting ($task_config).
+# bash eval.sh beat_block_hammer demo_clean demo_clean 50 0 0
+# This command trains the policy using the `demo_clean` setting ($ckpt_setting)
+# and evaluates it using the same `demo_clean` setting ($task_config).
 #
-# To evaluate a policy trained on the `demo_randomized` setting and tested on the `demo_clean` setting, run:
-# bash eval.sh beat_block_hammer demo_clean demo_randomized 50 0 0
+# To evaluate a policy trained on the `demo_clean` setting and tested on the `demo_randomized` setting, run:
+# bash eval.sh beat_block_hammer demo_randomized demo_clean 50 0 0
 ```
 
 The evaluation results, including videos, will be saved in the `eval_result` directory under the project root.

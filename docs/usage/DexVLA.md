@@ -25,7 +25,7 @@ pip install -r Eval_Tiny_DexVLA_requirements.txt
 This step performs data preprocessing, converting the original RoboTwin 2.0 data into the format required for DexVLA training. The `expert_data_num` parameter specifies the number of trajectory pairs to be used as training data.
 ```bash
 python process_data.py ${task_name} ${task_config} ${expert_data_num}
-# python process_data.py beat_block_hammer demo_randomized 50
+# python process_data.py beat_block_hammer demo_clean 50
 ```
 If success, you will find the data in the `policy/Dexvla/data/sim_${task_name}/${setting}_${expert_data_num}` folder.
 
@@ -71,7 +71,12 @@ You need to modify the corresponding path in the `deploy_policy.yml` file:
 Then execute:
 ```
 bash eval.sh ${task_name} ${task_config} ${ckpt_setting} ${expert_data_num} ${seed} ${gpu_id}
-# bash eval.sh beat_block_hammer demo_randomized 0 50 0 0
+# bash eval.sh beat_block_hammer demo_clean demo_clean 0 50 0 0
+# This command trains the policy using the `demo_clean` setting ($ckpt_setting)
+# and evaluates it using the same `demo_clean` setting ($task_config).
+#
+# To evaluate a policy trained on the `demo_clean` setting and tested on the `demo_randomized` setting, run:
+# bash eval.sh beat_block_hammer demo_randomized demo_clean 0 50 0 0
 ```
 
 ## Citation

@@ -44,7 +44,8 @@ Then, convert RoboTwin data to HDF5 data type.
 
 ``` bash
 bash process_data_pi0.sh ${task_name} ${task_config} ${expert_data_num}
-# bash process_data_pi0.sh beat_block_hammer demo_randomized 50
+# bash process_data_pi0.sh beat_block_hammer demo_clean 50
+# or processing randomized data: bash process_data.sh beat_block_hammer demo_randomized 50
 ```
 
 If success, you will find the `${task_name}-${task_config}-${expert_data_num}` folder under `policy/pi0/processed_data`.
@@ -88,8 +89,8 @@ training_data/
 
 #sigle task example
 training_data/  
-├── demo_randomized
-|       ├──beat_block_hammer-demo_randomized-50
+├── demo_clean
+|       ├──beat_block_hammer-demo_clean-50
 |       |   ├──episode_0
 |       |   |	├── instructions.json  
 |       |   |	├── episode_0.hdf5  
@@ -111,7 +112,7 @@ Now, we can directly generate the LerobotDataset format data for pi0
 # hdf5_path: The path to the generated HDF5 data (e.g., ./training_data/${model_name}/)
 # repo_id: The name of the dataset (e.g., my_repo)
 bash generate.sh ${hdf5_path} ${repo_id}
-#bash generate.sh ./training_data/demo_randomized/ demo_randomized_repo
+#bash generate.sh ./training_data/demo_clean/ demo_clean_repo
 ```
 
 LerobotDataset format data will be writed into `${XDG_CACHE_HOME}/huggingface/lerobot/${repo_id}`
@@ -124,7 +125,7 @@ In `src/openpi/training/config.py`, there is a dictionary called `_CONFIGS`. You
 `pi0_base_aloha_robotwin_full`
 `pi0_fast_aloha_robotwin_full`
 
-You only need to write `repo_id`  on your datasets.(e.g., `repo_id=demo_randomized_repo`)
+You only need to write `repo_id`  on your datasets.(e.g., `repo_id=demo_clean_repo`)
 If you want to change the `name` in `TrainConfig`, please include `fast` if you choose `pi_fast_base` model.
 If your do not have enough gpu memory, you can set `fsdp_devices`, refer to `config.py` line `src/openpi/training/config.py` line 352.
 
@@ -138,7 +139,7 @@ uv run scripts/compute_norm_stats.py --config-name ${train_config_name}
 # model_name: You can choose any name for your model
 # gpu_use: if not using multi gpu,set to gpu_id like 0;else set like 0,1,2,3
 bash finetune.sh ${train_config_name} ${model_name} ${gpu_use}
-#bash finetune.sh pi0_base_aloha_robotwin_full demo_randomized 0,1,2,3
+#bash finetune.sh pi0_base_aloha_robotwin_full demo_clean 0,1,2,3
 ```
 
 | Training mode | Memory Required | Example GPU        |
@@ -166,14 +167,14 @@ Checkpoints will be saved in policy/pi0/checkpoints/${train_config_name}/${model
 You can modify the `deploy_policy.yml` file to change the `checkpoint_id` you want to evaluate.
 
 ```bash
-# ckpt_path like: policy/pi0/checkpoints/pi0_base_aloha_robotwin_full/demo_randomized/30000
+# ckpt_path like: policy/pi0/checkpoints/pi0_base_aloha_robotwin_full/demo_clean/30000
 bash eval.sh ${task_name} ${task_config} ${train_config_name} ${model_name} ${seed} ${gpu_id}
-# bash eval.sh beat_block_hammer demo_randomized pi0_base_aloha_robotwin_full demo_randomized 0 0
-# This command trains the policy using the `demo_randomized` setting ($model_name)
-# and evaluates it using the same `demo_randomized` setting ($task_config).
+# bash eval.sh beat_block_hammer demo_clean pi0_base_aloha_robotwin_full demo_clean 0 0
+# This command trains the policy using the `demo_clean` setting ($model_name)
+# and evaluates it using the same `demo_clean` setting ($task_config).
 
-# To evaluate a policy trained on the `demo_randomized` setting and tested on the `demo_clean` setting, run:
-# bash eval.sh beat_block_hammer demo_clean pi0_base_aloha_robotwin_full demo_randomized 0 0
+# To evaluate a policy trained on the `demo_clean` setting and tested on the `demo_randomized` setting, run:
+# bash eval.sh beat_block_hammer demo_randomized pi0_base_aloha_robotwin_full demo_clean 0 0
 ```
 
 The evaluation results, including videos, will be saved in the `eval_result` directory under the project root.

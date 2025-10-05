@@ -65,7 +65,7 @@ A `$model_name` manages the training of a model, including the training data and
 ```bash
 cd policy/RDT
 bash generate.sh ${model_name}
-# bash generate.sh RDT_demo_randomized
+# bash generate.sh RDT_demo_clean
 ```
 
 This will create a folder named `\${model_name}` under training_data and a configuration file `\${model_name}.yml` under model_config.
@@ -95,7 +95,7 @@ In `model_config/${model_name}.yml`, you need to manually set the GPU to be used
 Once the training parameters are set, you can start training with:
 ```bash
 bash finetune.sh ${model_name}
-# bash finetune.sh RDT_demo_randomized
+# bash finetune.sh RDT_demo_clean
 ```
 **Note!**
 
@@ -108,12 +108,12 @@ The `task_config` field refers to the **evaluation environment configuration**, 
 
 ```bash
 bash eval.sh ${task_name} ${task_config} ${model_name} ${checkpoint_id} ${seed} ${gpu_id}
-# bash eval.sh beat_block_hammer demo_randomized RDT_demo_randomized 10000 0 0
-# This command trains the policy using the `RDT_demo_randomized` setting ($model_name)
-# and evaluates it using the same `demo_randomized` setting ($task_config).
+# bash eval.sh beat_block_hammer demo_clean RDT_demo_clean 10000 0 0
+# This command trains the policy using the `RDT_demo_clean` setting ($model_name)
+# and evaluates it using the same `demo_clean` setting ($task_config).
 #
-# To evaluate a policy trained on the `demo_randomized` setting and tested on the `demo_clean` setting, run:
-# bash eval.sh beat_block_hammer demo_clean RDT_demo_randomized 10000 0 0
+# To evaluate a policy trained on the `demo_clean` setting and tested on the `demo_randomized` setting, run:
+# bash eval.sh beat_block_hammer demo_randomized RDT_demo_clean 10000 0 0
 ```
 
 The evaluation results, including videos, will be saved in the `eval_result` directory under the project root.

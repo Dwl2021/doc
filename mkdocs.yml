@@ -31,6 +31,7 @@ nav:
       - TinyVLA: usage/TinyVLA.md
       - OpenVLA-oft: usage/OpenVLA-oft.md
       - LLaVA-VLA: usage/LLaVA-VLA.md
+      - GO1: usage/GO1.md
     - Expert Code Gen (for Novel Task): usage/expert-code-gen.md
     - API Tutorial: usage/API.md
     # - Dual Env (Policy and Deployment): usage/dual-env-policy-deploy.md

@@ -119,6 +119,8 @@ LerobotDataset format data will be writed into `${XDG_CACHE_HOME}/huggingface/le
 
 ## Write the Corresponding `train_config`
 
+> For our official experiment, we use `pi0_base_aloha_robotwin_lora`
+
 In `src/openpi/training/config.py`, there is a dictionary called `_CONFIGS`. You can modify 4 pre-configured PI0 configurations I’ve written:
 `pi0_base_aloha_robotwin_lora` 
 `pi0_fast_aloha_robotwin_lora`
